@@ -9,7 +9,7 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({bot,setMyBotArmy,myBotArmy}) {
+function BotCard({bot,setMyBotArmy,myBotArmy,setBotData}) {
 
   function handleAddToMyArmy() {
     if(myBotArmy.find((myBot)=>myBot.id===bot.id)){
@@ -17,10 +17,17 @@ function BotCard({bot,setMyBotArmy,myBotArmy}) {
     }else{
       setMyBotArmy(myArmy=>[...myArmy,bot]);
     }
+  }
 
-    
 
-}
+    function handleDeleteBot(){
+      fetch(`http://localhost:8002/bots/${bot.id}`, {
+       method: "DELETE",
+      })
+      .then((r) => r.json())
+      .then(() => setBotData(allBots=>myBotArmy.filter((myBot=>myBot.id!==bot.id))))
+
+    }
 
 
 
@@ -61,9 +68,7 @@ function BotCard({bot,setMyBotArmy,myBotArmy}) {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  console.log("add code to connect event listener")
-                }
+                onClick={handleDeleteBot}
               
               >
                 x
