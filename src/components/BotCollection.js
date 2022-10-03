@@ -1,18 +1,7 @@
-import React, { useState,useEffect } from "react";
+import React from "react";
 import BotCard from "./BotCard";
 
-function BotCollection() {
-
-  const [allBots,setAllBots]=useState([])
-
-
-  useEffect(() => {
-    fetch( "http://localhost:8002/bots")
-      .then((r) => r.json())
-      .then((allBots) => setAllBots(allBots));
-  }, []);
-
-
+function BotCollection({allBots}) {
 
   return (
     <div className="ui four column grid">
