@@ -6,6 +6,7 @@ import BotCollection from "./BotCollection";
 function BotsPage() {
   //start here with your code for step one  
   const [botData,setBotData]=useState([])
+  const [myBotArmy,setMyBotArmy]=useState([])
 
 
   useEffect(() => {
@@ -16,9 +17,8 @@ function BotsPage() {
 
   return (
     <div>
-      <YourBotArmy />
-      <BotCollection allBots={botData}
-      />
+  <YourBotArmy myBotArmy ={myBotArmy} setMyBotArmy={setMyBotArmy}/>
+  <BotCollection allBots={botData} setMyBotArmy={setMyBotArmy} myBotArmy={myBotArmy}/>
     </div>
   )
 }
