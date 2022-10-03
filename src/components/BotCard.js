@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const botTypeClasses = {
   Assault: "icon military",
   Defender: "icon shield",
@@ -9,7 +10,7 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({bot,setMyBotArmy,myBotArmy,setBotData}) {
+function BotCard({bot,setMyBotArmy,myBotArmy,setBotData,allBots}) {
 
   function handleAddToMyArmy() {
     if(myBotArmy.find((myBot)=>myBot.id===bot.id)){
@@ -25,7 +26,7 @@ function BotCard({bot,setMyBotArmy,myBotArmy,setBotData}) {
        method: "DELETE",
       })
       .then((r) => r.json())
-      .then(() => setBotData(allBots=>myBotArmy.filter((myBot=>myBot.id!==bot.id))))
+      .then(() => setBotData(allBots=>allBots.filter((myBot=>myBot.id!==bot.id))))
 
     }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import BotCard from "./BotCard";
 
-function YourBotArmy({setMyBotArmy,myBotArmy}) {
+function YourBotArmy({setMyBotArmy,myBotArmy,}) {
   //your bot army code here...
 
   return (
@@ -10,7 +10,7 @@ function YourBotArmy({setMyBotArmy,myBotArmy}) {
         <div className="row bot-army-row">
           {/*...and here...*/}
           {myBotArmy.map(bot=>(
-          <BotCard key={bot.id} bot={bot} myBotArmy={myBotArmy} setMyBotArmy={setMyBotArmy}/>))}
+          <BotCard key={bot.id} bot={bot} myBotArmy={myBotArmy} setMyBotArmy={setMyBotArmy} />))}
           Your Bot Army
         </div>
       </div>
