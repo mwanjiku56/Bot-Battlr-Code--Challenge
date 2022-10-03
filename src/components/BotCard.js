@@ -9,7 +9,7 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({bot ,setMyBotArmy,myBotArmy}) {
+function BotCard({bot,setMyBotArmy,myBotArmy}) {
 
   function handleAddToMyArmy() {
     if(myBotArmy.find((myBot)=>myBot.id===bot.id)){
