@@ -12,6 +12,18 @@ const botTypeClasses = {
 
 function BotCard({bot,setMyBotArmy,myBotArmy,setBotData}) {
 
+
+  function handleDeleteBot(){
+    fetch(`http://localhost:8002/bots/${bot.id}`, {
+     method: "DELETE",
+    })
+    .then((r) => r.json())
+    .then(() => 
+    {setBotData((bots)=>bots.filter((myBot=>myBot.id!==bot.id)))
+    });
+  }
+
+
   function handleAddToMyArmy() {
     if(myBotArmy.find((myBot)=>myBot.id===bot.id)){
       setMyBotArmy(myArmy=>myArmy.filter(myBot=>myBot.id!==bot.id))
@@ -19,17 +31,6 @@ function BotCard({bot,setMyBotArmy,myBotArmy,setBotData}) {
       setMyBotArmy(myArmy=>[...myArmy,bot]);
     }
   }
-
-
-    function handleDeleteBot(){
-      fetch(`http://localhost:8002/bots/${bot.id}`, {
-       method: "DELETE",
-      })
-      .then((r) => r.json())
-      .then(() => setBotData((bots)=>bots.filter((myArmybot=>myArmybot.id!==bot.id))))
-    }
-      // setBotData((bots) => bots.filter((botArm) => botArm.id !== bot.id));
-    
 
 
 
