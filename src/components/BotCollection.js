@@ -8,7 +8,7 @@ function BotCollection({allBots,myBotArmy,setMyBotArmy,setBotData}) {
       <div className="row">
         {/*...and here..*/}
         {allBots.map(bot=>(
-         <BotCard key={bot.id} bot={bot} myBotArmy={myBotArmy} setMyBotArmy={setMyBotArmy} setBotData={setBotData} />))}
+         <BotCard key={bot.id} bot={bot} myBotArmy={myBotArmy} setMyBotArmy={setMyBotArmy} setBotData={setBotData}allBots={allBots} />))}
         Collection of all bots
       </div>
     </div>

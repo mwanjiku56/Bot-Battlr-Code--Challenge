@@ -10,7 +10,7 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({bot,setMyBotArmy,myBotArmy,setBotData,allBots}) {
+function BotCard({bot,setMyBotArmy,myBotArmy,setBotData}) {
 
   function handleAddToMyArmy() {
     if(myBotArmy.find((myBot)=>myBot.id===bot.id)){
@@ -26,9 +26,10 @@ function BotCard({bot,setMyBotArmy,myBotArmy,setBotData,allBots}) {
        method: "DELETE",
       })
       .then((r) => r.json())
-      .then(() => setBotData(allBots=>allBots.filter((myBot=>myBot.id!==bot.id))))
-
+      .then(() => setBotData((bots)=>bots.filter((myArmybot=>myArmybot.id!==bot.id))))
     }
+      // setBotData((bots) => bots.filter((botArm) => botArm.id !== bot.id));
+    
 
 
 
